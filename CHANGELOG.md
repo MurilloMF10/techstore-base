@@ -1,5 +1,12 @@
 # Changelog
 
+## Próxima versão
+
+* Corrigidos os cálculos do carrinho e bloqueada a compra de produtos sem preço válido.
+* Produtos esgotados saíram da vitrine pública e agora permitem solicitar aviso de reposição; solicitações locais aparecem na área de estoque.
+* Atualizações seguras no carrinho e cards padronizados entre loja, produtos relacionados e sugestões.
+* Frete grátis atualizado para compras acima de R$ 200 após descontos, com indicação dinâmica no carrinho.
+
 ## 1.4.0 (setembro de 2026)
 
 * Novo visual do card de produto na lista, com avaliação e selos.

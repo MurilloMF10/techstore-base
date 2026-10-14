@@ -2,7 +2,23 @@
 // Ex.: duas camisetas iguais = o mesmo produto duas vezes no array.
 
 export function calcularTotal(carrinho) {
-  return carrinho.reduce((total, produto) => total + produto.price, 0)
+  return carrinho.reduce((total, produto) => {
+    const preco = obterPrecoValido(produto)
+    return preco === null ? total : total + preco
+  }, 0)
+}
+
+export function obterPrecoValido(produto) {
+  if (produto?.price === null || produto?.price === undefined || produto?.price === '') return null
+  const preco = Number(produto.price)
+  return Number.isFinite(preco) && preco >= 0 ? preco : null
+}
+
+export function calcularFreteGratis(total) {
+  const limite = 200
+  const valor = Number(total) || 0
+  const falta = Math.max(0, Math.round((limite - valor + 0.01) * 100) / 100)
+  return { atingido: valor > limite, falta: valor > limite ? 0 : falta }
 }
 
 export function agruparItens(carrinho) {

@@ -11,8 +11,9 @@
 
 ## Produtos esgotados
 
-* Produtos sem unidades em estoque continuam visíveis na loja, com o selo "Esgotado".
-* O botão de compra fica desabilitado nos produtos esgotados.
+* Produtos sem unidades em estoque não aparecem na loja, mas continuam disponíveis por link direto e na área interna.
+* A página de produto esgotado permite solicitar aviso de reposição com nome e e-mail.
+* Solicitações são deduplicadas por e-mail e produto e ficam no armazenamento local do navegador.
 
 ## Produtos sem preço
 
@@ -29,3 +30,6 @@
 * Permite remover unidades.
 * Permite aplicar cupons de desconto.
 * Exibe o total da compra.
+* Produtos sem preço válido não podem ser adicionados ao carrinho.
+* O frete grátis é concedido quando o total após descontos ultrapassa R$ 200; o carrinho informa o valor que falta.
+* Os cards da loja, relacionados e sugestões usam o mesmo componente visual.

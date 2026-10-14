@@ -4,7 +4,9 @@
 
 ## Frete grátis
 
-Produtos com preço acima de R$ 100 têm frete grátis e exibem o selo "Frete grátis".
+O frete grátis é concedido quando o valor final após cupons e descontos válidos é superior a R$ 200, antes do frete. O valor exato de R$ 200 não qualifica.
+
+Produtos sem preço válido não podem ser vendidos nem adicionados ao carrinho.
 
 ## Cupons
 

@@ -31,21 +31,23 @@ export default function App() {
   }, [])
 
   function adicionarAoCarrinho(produto) {
-    setCarrinho(carrinho.concat(produto))
+    if (!produto || produto.estoque <= 0 || produto.price === null || produto.price === undefined || produto.price === '' || !Number.isFinite(Number(produto.price)) || Number(produto.price) < 0) return false
+    setCarrinho((atual) => atual.concat(produto))
+    return true
   }
 
   function removerUmaUnidade(produtoId) {
     // Remove só a primeira unidade encontrada do produto
-    let removido = false
-    setCarrinho(
-      carrinho.filter((produto) => {
+    setCarrinho((atual) => {
+      let removido = false
+      return atual.filter((produto) => {
         if (!removido && produto.id === produtoId) {
           removido = true
           return false
         }
         return true
       })
-    )
+    })
   }
 
   const clienteAtual = clientes.find((cliente) => cliente.id === clienteAtualId)

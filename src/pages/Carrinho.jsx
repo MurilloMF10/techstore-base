@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router'
 import SugestaoItem from '../components/SugestaoItem'
-import { agruparItens, calcularTotal } from '../utils/carrinho'
+import { agruparItens, calcularFreteGratis, calcularTotal } from '../utils/carrinho'
 import { validarCupom } from '../utils/cupons'
 import { formatarPreco } from '../utils/formatarPreco'
 
@@ -13,6 +13,7 @@ export default function Carrinho({ carrinho, produtos, clienteAtual, onAdicionar
   const itens = agruparItens(carrinho)
   const total = calcularTotal(carrinho)
   const totalComDesconto = cupomAplicado ? total * (1 - cupomAplicado.desconto) : total
+  const frete = calcularFreteGratis(totalComDesconto)
 
   const sugestoes = produtos
     .filter((produto) => !carrinho.find((item) => item.id === produto.id))
@@ -48,6 +49,7 @@ export default function Carrinho({ carrinho, produtos, clienteAtual, onAdicionar
   return (
     <section>
       <h1>Carrinho</h1>
+      <p className="aviso-frete">{frete.atingido ? 'Você já atingiu o frete grátis!' : `Faltam ${formatarPreco(frete.falta)} para atingir o frete grátis.`}</p>
 
       <div className="carrinho-layout">
         <ul className="lista-carrinho">
@@ -58,7 +60,9 @@ export default function Carrinho({ carrinho, produtos, clienteAtual, onAdicionar
               </div>
               <div className="item-info">
                 <p className="item-titulo">{item.produto.title}</p>
-                <p className="item-preco">R$ {item.produto.price}</p>
+                <p className="item-preco">
+                  {formatarPreco(item.produto.price)} · subtotal {formatarPreco(Number(item.produto.price) * item.quantidade)}
+                </p>
               </div>
               <span className="item-quantidade">{item.quantidade} un.</span>
               <button className="botao-texto" onClick={() => onRemover(item.produto.id)}>

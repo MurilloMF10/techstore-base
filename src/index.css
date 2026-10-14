@@ -591,6 +591,30 @@ h2 {
   font-weight: 700;
 }
 
+.form-aviso {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-2);
+  padding: var(--espaco-4);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio);
+  background: var(--cor-superficie);
+}
+
+.form-aviso h2 { margin: 0 0 var(--espaco-2); }
+.form-aviso input {
+  padding: var(--espaco-3);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-pequeno);
+}
+.aviso-frete {
+  padding: var(--espaco-3) var(--espaco-4);
+  color: var(--cor-frete);
+  background: var(--cor-frete-fundo);
+  border-radius: var(--raio-pequeno);
+  font-weight: 700;
+}
+
 /* Carrinho */
 
 .carrinho-layout {
